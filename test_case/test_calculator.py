@@ -27,7 +27,7 @@ class TestCalculator:
         assert exp == self.calc.add(a, b)
 
     # 测试除法
-    @pytest.mark.add
+    @pytest.mark.div
     @pytest.mark.parametrize(["a", "b", "exp"], data.get_div_real_value())
     def test_div(self, a, b, exp):
         if b != 0:
