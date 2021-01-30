@@ -7,7 +7,6 @@
 """
 import pytest
 from test_code.calculator import Calculator
-# from util.get_file import GetFile
 from util.get_real_value import GetRealValue
 
 
