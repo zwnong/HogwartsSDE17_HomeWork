@@ -13,10 +13,10 @@ hogwarts学习笔记
     
 ## git：[配置和常用命令](https://ceshiren.com/t/topic/7405)
         
-## GitHub 
+- [## GitHub] [1]
     是一个托管平台
     
-## pycharm配置git：
+[1]## pycharm配置git：
     提交代码步骤： 代码-本地git仓库-提交到远程的仓库（github）
     1. 环境搭建 官网下载 傻瓜式安装
     2. 创建本地git仓库：在项目根目录输入git init 初始化一个git仓库
