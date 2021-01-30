@@ -37,6 +37,8 @@ hogwarts学习笔记
                         search
         就可以使用以下命令运行某一些特定的测试用例
             pytest -m "login"
+    - 生成执行结果文件： --junitxml=./result.xml
+    -
     
 ### 警告捕获
     -从3.1版开始，pytest现在会在测试执行期间自动捕捉警告，并在会话结束时显示它们
@@ -48,4 +50,4 @@ hogwarts学习笔记
        pytest -q test_show_warnings.py -W error::UserWarning
     - @pytest.mark.filterwarnings
         -使用@pytest.mark。filterwarnings将警告过滤器添加到特定的测试项，控制哪些警告应该在测试、类甚至模块级别捕获
-1
+    

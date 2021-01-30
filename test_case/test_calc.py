@@ -5,22 +5,35 @@
 @Author   :  zwnong
 @Time     :  2021/1/30  1:20
 """
-import sys
-
-a = sys.path.append('../config')
 import pytest
-from test_code.test_calculator import Calculator
+from test_code.calculator import Calculator
+from util.get_file import GetFile
 
 
 class TestCalculator:
+    data = GetFile()
+
+    def setup_class(self):
+        self.calc = Calculator()
+        print('开始计算')
+
+    def teardown_class(self):
+        print('计算结束')
+
     # 测试加法
+    @pytest.mark.add
+    @pytest.mark.parametrize(["a", "b", "exp"], data.get_value('datas')["add"])
+    def test_add(self, a, b, exp):
+        assert exp == self.calc.add(a, b)
 
-    @pytest.mark.login
-    def test_add(self):
-        calu = Calculator()
-        assert 2 == calu.add(1, 1)
-
-    # 测试减法
-    @pytest.mark.search
-    def div(self):
-        pass
+    # 测试除法
+    @pytest.mark.add
+    @pytest.mark.parametrize(["a", "b", "exp"], data.get_value('datas')["div"])
+    def test_div(self, a, b, exp):
+        if b != 0:
+            assert exp == self.calc.div(a, b)
+        else:
+            try:
+                self.calc.div(a, b)
+            except Exception as e:
+                print(e)
