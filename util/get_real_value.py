@@ -15,11 +15,11 @@ class GetRealValue:
     def get_add_real_value(self):
         return self.get_real.get_value('add')['datas']
 
-    def get_div_real_value(self):
-        return self.get_real.get_value('div')['datas']
-
     def get_ids_real_value(self):
         return self.get_real.get_value('add')['ids']
+
+    def get_div_real_value(self):
+        return self.get_real.get_value('div')['datas']
 
 
 if __name__ == '__main__':
