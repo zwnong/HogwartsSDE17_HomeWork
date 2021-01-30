@@ -21,7 +21,7 @@ class GetFile:
         self.data = self.get_yaml()
 
     def get_yaml(self):
-        data = yaml.safe_load(open(str(self.yaml_file)))
+        data = yaml.safe_load(open(str(self.yaml_file), 'r', encoding='utf-8'))
         return data
 
     # 传入key获取value
