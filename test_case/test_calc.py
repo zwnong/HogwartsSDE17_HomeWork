@@ -14,7 +14,6 @@ from util.get_real_value import GetRealValue
 class TestCalculator:
     data = GetRealValue()
 
-
     def setup_class(self):
         self.calc = Calculator()
         print('开始计算')
@@ -39,3 +38,7 @@ class TestCalculator:
                 self.calc.div(a, b)
             except Exception as e:
                 print(e)
+
+
+if __name__ == '__main__':
+    pytest.main('-vs', 'calculator.py')
