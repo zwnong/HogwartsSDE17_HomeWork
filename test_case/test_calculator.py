@@ -1,6 +1,6 @@
 # coding = utf-8
 """
-@File     :  test_calc.py
+@File     :  test_calculator.py
 @project  :  
 @Author   :  zwnong
 @Time     :  2021/1/30  1:20
