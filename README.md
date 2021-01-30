@@ -48,4 +48,4 @@ hogwarts学习笔记
        pytest -q test_show_warnings.py -W error::UserWarning
     - @pytest.mark.filterwarnings
         -使用@pytest.mark。filterwarnings将警告过滤器添加到特定的测试项，控制哪些警告应该在测试、类甚至模块级别捕获
-
+1
