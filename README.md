@@ -19,7 +19,7 @@ hogwarts学习笔记
     - 创建本地git仓库：在项目根目录输入git init 初始化一个git仓库
         ->在本地创建了一个.git目录（隐藏目录）
         ->执行git后该文件夹就被git管理的仓库
-    - 点击![](https://github.com/zwnong/HogwartsSDE17_zwnong/commit/326e2b24117f6c18a42256e373388f4df286cc81/git1.png)展示Commit Changslist选择add to ,gitignore忽略掉.env（因为不需要上传项目环境）
+    - 点击右上角Git：绿色的✔展示Commit Changslist选择add to ,gitignore忽略掉.env（因为不需要上传项目环境）
     - 添加信息  点击commit上传到本地git仓库
     - 本地git与GitHub关联： VCS -> Git ->Git Remotes 输入github地址
     - VCS -> Git -> push...
