@@ -17,3 +17,7 @@ class TestClac:
     @pytest.mark.parametrize(("a", "b"), yaml.safe_load(open("./data.yaml")))
     def test_data(self, a, b):
         print(a + b)
+# filterwarnings =
+#     error
+#     ignore::UserWarning
+#     ignore:function ham\(\) is deprecated:DeprecationWarning
