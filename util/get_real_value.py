@@ -21,7 +21,11 @@ class GetRealValue:
     def get_div_real_value(self):
         return self.get_real.get_value('div')['datas']
 
+    # 测试是否获取操yaml数据
+    def get_test(self):
+        return self.get_real.get_value('test')['int']['datas']
+
 
 if __name__ == '__main__':
     run = GetRealValue()
-    print(run.get_div_real_value())
+    print(run.get_test())
