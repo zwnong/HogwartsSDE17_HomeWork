@@ -1,6 +1,6 @@
 # coding = utf-8
 """
-@File     :  get_file.py
+@File     :  get_yaml.py
 @project  :  
 @Author   :  zwnong
 @Time     :  2021/1/30  3:07
@@ -36,4 +36,4 @@ class GetFile:
 
 if __name__ == '__main__':
     run = GetFile()
-    print(run.get_value('datas')['div'])
+    print(run.get_value('div')['datas'])

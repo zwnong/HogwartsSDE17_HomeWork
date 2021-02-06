@@ -5,7 +5,7 @@
 @Author   :  zwnong
 @Time     :  2021/1/31  0:17
 """
-from util.get_file import GetFile
+from util.get_yaml import GetFile
 
 
 class GetRealValue:
