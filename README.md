@@ -5,6 +5,7 @@ hogwarts学习笔记
 
 - [hogwarts作业地址](https://github.com/zwnong/HogwartsSDE17_zwnong.git)
 
-- Git：[配置和常用命令](https://ceshiren.com/t/topic/7405)
+- Git：[配置和常用命令](https://ceshiren.com/t/topic/7405) 
+- [pytest作业](https://github.com/zwnong/HogwartsSDE17_HomeWork/tree/master/test_case)
 - [web自动化(企业微信)：复用浏览器、cookie登录](https://github.com/zwnong/HogwartsSDE17_HomeWork/tree/master/test_selenium)
  
