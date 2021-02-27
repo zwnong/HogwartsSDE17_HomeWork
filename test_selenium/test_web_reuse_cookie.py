@@ -10,13 +10,14 @@ import json
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 class TestReuseCookie:
     def setup(self):
         self.chrome_arg = webdriver.ChromeOptions()
         self.chrome_arg.debugger_address = '127.0.0.1:9222'
-        self.driver = webdriver.Chrome(r'D:\Google\Chrome\Application\chromedriver.exe', options=self.chrome_arg)
+        self.driver = webdriver.Chrome(r'D:\Google\Chrome\Application\chromedriver.exe')  # , options=self.chrome_arg)
         self.driver.implicitly_wait(3)
 
     def teardown(self):
@@ -27,7 +28,10 @@ class TestReuseCookie:
         # 复用浏览器登录
         :return:
         """
-
+        # WebDriverWait(self.driver, 3, 1).until(lambda x: x.get('https://work.weixin.qq.com/'))
+        # WebDriverWait(self.driver, 5, 1).until(lambda x: x.find_element(By.XPATH,
+        #                                                                 '//*[@class="index_top_operation_loginBtn"]')
+        #                                        .click())
         self.driver.get('https://work.weixin.qq.com/')
         self.driver.find_element(By.XPATH, '//*[@class="index_top_operation_loginBtn"]').click()
 
@@ -55,8 +59,8 @@ class TestReuseCookie:
             print(raw)
             cookies = json.loads(raw)
         for i in cookies:
-            if 'expiry' in cookies:
-                cookies.pop("expiry")
+            # if 'expiry' in cookies:
+            #     cookies.pop("expiry")
             self.driver.add_cookie(i)
         self.driver.refresh()
         sleep(5)
