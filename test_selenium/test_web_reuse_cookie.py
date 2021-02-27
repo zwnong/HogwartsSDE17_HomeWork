@@ -3,7 +3,7 @@
 """
 @author: zwnong
 @project: HogwartsSDE17
-@file: test_web_reuse_chrome.py
+@file: test_web_reuse_cookie.py
 @time: 2021/2/27 21:28
 """
 import json
@@ -12,7 +12,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 
-class TestReuseChrome:
+class TestReuseCookie:
     def setup(self):
         self.chrome_arg = webdriver.ChromeOptions()
         self.chrome_arg.debugger_address = '127.0.0.1:9222'
