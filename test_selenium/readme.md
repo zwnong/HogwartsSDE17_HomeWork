@@ -1,7 +1,7 @@
 # 企业微信的自动化的登录
 
-- #selenium
-    - ##三剑客 
+- # selenium
+    - ## 三剑客 
       selenium webdriver 编程语言驱动
       selenium IDE 插件
       selenium Grid 分布式工具
@@ -24,7 +24,6 @@
 - ### cookie登录
     cookie相当与身份信息，再请求数据的时候携带cookie
         作用：维持会话
-            使用：
             
             -driver.get(url)
             -driver.delete_all_cookies()
