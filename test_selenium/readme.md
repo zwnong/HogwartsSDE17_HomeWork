@@ -39,4 +39,4 @@
             -3 将获取到的cookie转化成字符串 jion.dumps(cookies)
             -4 存到本地文件
             -5 读取本地cookies.text文件
-            -6 因为读取出来是列表 含有多个字典 而driver.add cookie()规则是传入一个字典 所有需要for遍历传入
+            -6  因为读取出来是列表 含有多个字典 而driver.add cookie()规则是传入一个字典 所有需要for遍历传入
