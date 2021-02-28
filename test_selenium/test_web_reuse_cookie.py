@@ -8,6 +8,8 @@
 """
 import json
 from time import sleep
+
+import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -15,9 +17,11 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 class TestReuseCookie:
     def setup(self):
+        # 什么chrome参数
         self.chrome_arg = webdriver.ChromeOptions()
+        # 调试地址
         self.chrome_arg.debugger_address = '127.0.0.1:9222'
-        self.driver = webdriver.Chrome(r'D:\Google\Chrome\Application\chromedriver.exe')  # , options=self.chrome_arg)
+        self.driver = webdriver.Chrome(r'D:\Google\Chrome\Application\chromedriver.exe', options=self.chrome_arg)
         self.driver.implicitly_wait(3)
 
     def teardown(self):
@@ -28,12 +32,12 @@ class TestReuseCookie:
         # 复用浏览器登录
         :return:
         """
-        # WebDriverWait(self.driver, 3, 1).until(lambda x: x.get('https://work.weixin.qq.com/'))
         # WebDriverWait(self.driver, 5, 1).until(lambda x: x.find_element(By.XPATH,
         #                                                                 '//*[@class="index_top_operation_loginBtn"]')
         #                                        .click())
         self.driver.get('https://work.weixin.qq.com/')
         self.driver.find_element(By.XPATH, '//*[@class="index_top_operation_loginBtn"]').click()
+        sleep(5)
 
     def test_4(self):
         self.driver.get('https://work.weixin.qq.com/wework_admin/frame')
@@ -43,12 +47,13 @@ class TestReuseCookie:
         self.driver.find_element(By.XPATH, '//*[@id="menu_index"]').click()
         sleep(5)
 
+    @pytest.mark.skip
     def test_cookie_login(self):
         """
         使用cookie登录
         :return:
         """
-        # 存入cookies
+        # # 存入cookies
         # cookies = self.driver.get_cookies()
         # with open('cookies.text', 'w', encoding='utf-8') as f:
         #     f.write(json.dumps(cookies))
@@ -59,8 +64,9 @@ class TestReuseCookie:
             print(raw)
             cookies = json.loads(raw)
         for i in cookies:
-            # if 'expiry' in cookies:
-            #     cookies.pop("expiry")
+            print(i)
+            if 'expiry' in cookies:
+                cookies.pop("expiry")
             self.driver.add_cookie(i)
         self.driver.refresh()
         sleep(5)
