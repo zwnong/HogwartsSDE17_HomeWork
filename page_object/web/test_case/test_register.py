@@ -8,7 +8,7 @@
 """
 from time import sleep
 
-from page_object.web.login_page.main_page import MainPage
+from page_object.web.login_page.login_main_page import MainPage
 
 
 class TestRegister:

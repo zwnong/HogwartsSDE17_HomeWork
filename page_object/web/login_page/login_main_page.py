@@ -3,7 +3,7 @@
 """
 @author: zwnong
 @project: HogwartsSDE17
-@file: main_page.py
+@file: login_main_page.py
 @time: 2021/3/1 22:03
 """
 from selenium import webdriver
