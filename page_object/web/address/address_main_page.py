@@ -21,6 +21,7 @@ class AddressMainPage:
         # 点击添加成员
         :return: 添加成员
         """
+
         def wait_name(driver):
             """
             # 加了隐式等待点击成功却没有跳转页面：隐式等待只判断元素可点击
@@ -30,6 +31,7 @@ class AddressMainPage:
             """
             self.driver.find_elements(By.XPATH, '//*[@class="qui_btn ww_btn js_add_member"]')[1].click()
             return len(self.driver.find_elements(By.XPATH, '//*[@id="username"]')) > 0
+
         WebDriverWait(self.driver, 10).until(wait_name)
 
         return AddMembers(self.driver)
