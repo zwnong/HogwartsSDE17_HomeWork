@@ -8,11 +8,8 @@
 """
 import json
 from time import sleep
-
-import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 
 
 class TestReuseCookie:
@@ -32,9 +29,6 @@ class TestReuseCookie:
         # 复用浏览器登录
         :return:
         """
-        # WebDriverWait(self.driver, 5, 1).until(lambda x: x.find_element(By.XPATH,
-        #                                                                 '//*[@class="index_top_operation_loginBtn"]')
-        #                                        .click())
         self.driver.get('https://work.weixin.qq.com/')
         self.driver.find_element(By.XPATH, '//*[@class="index_top_operation_loginBtn"]').click()
         sleep(5)
@@ -44,16 +38,16 @@ class TestReuseCookie:
         self.driver.find_element(By.XPATH, '//*[@id="menu_contacts"]').click()
         sleep(1)
         self.driver.find_element(By.XPATH, '//*[@id="menu_customer"]').click()
+        sleep(1)
         self.driver.find_element(By.XPATH, '//*[@id="menu_index"]').click()
         sleep(5)
 
-    @pytest.mark.skip
     def test_cookie_login(self):
         """
         使用cookie登录
         :return:
         """
-        # # 存入cookies
+        # 存入cookies
         # cookies = self.driver.get_cookies()
         # with open('cookies.text', 'w', encoding='utf-8') as f:
         #     f.write(json.dumps(cookies))
@@ -70,3 +64,6 @@ class TestReuseCookie:
             self.driver.add_cookie(i)
         self.driver.refresh()
         sleep(5)
+
+    def test_1(self):
+        pass
