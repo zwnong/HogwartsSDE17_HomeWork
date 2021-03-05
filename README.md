@@ -9,5 +9,6 @@ hogwarts学习笔记
 - [pytest作业](https://github.com/zwnong/HogwartsSDE17_HomeWork/tree/master/test_case)
 - [web自动化(企业微信)：复用浏览器、cookie登录](https://github.com/zwnong/HogwartsSDE17_HomeWork/tree/master/test_selenium)
 - [PagObject_web企业微信实战](https://github.com/zwnong/HogwartsSDE17_HomeWork/tree/master/page_object/web)
-- [企业微信app添加成员](1)
+- [滚动查找元素](https://github.com/zwnong/HogwartsSDE17_HomeWork/blob/master/page_object/app/scroll_through.py)
+- [企业微信app添加成员](https://github.com/zwnong/HogwartsSDE17_HomeWork/blob/master/page_object/app/test_add_contacts.py)
 
