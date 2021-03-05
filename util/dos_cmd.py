@@ -22,4 +22,4 @@ class DosCmd:
 
 if __name__ == '__main__':
     re = DosCmd()
-    print(re.excute_cmd_result('adb devices'))
+    print(re.excute_cmd('appium -p 4723 -bp 4726 -U 127.0.0.1:4723 --no-reset --session-override'))

@@ -15,13 +15,13 @@ sys.path.append('..')
 class GetFile:
     def __init__(self, file_path=None):
         if file_path is None:
-            self.file_path = self.yaml_file = r'../config\data.yaml'
+            self.file_path = r'../config\data.yaml'
         else:
             self.file_path = file_path
         self.data = self.get_yaml()
 
     def get_yaml(self):
-        data = yaml.safe_load(open(str(self.yaml_file), 'r', encoding='utf-8'))
+        data = yaml.safe_load(open(str(self.file_path), 'r', encoding='utf-8'))
         return data
 
     # 传入key获取value
@@ -36,4 +36,4 @@ class GetFile:
 
 if __name__ == '__main__':
     run = GetFile()
-    print(run.get_value('div')['datas'])
+    print(run.get_value('add')['datas'])
