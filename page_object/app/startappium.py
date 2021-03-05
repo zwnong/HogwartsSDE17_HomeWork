@@ -23,8 +23,8 @@ class StartAppium:
             'platformName': 'Android',
             "automationName": "UiAutomator2",
             'deviceName': '127.0.0.1:21503',
-            'appPackage': 'com.cyanogenmod.filemanager',
-            'appActivity': 'com.cyanogenmod.filemanager.activities.NavigationActivity',
+            'appPackage': 'com.tencent.wework',
+            'appActivity': 'com.tencent.wework.launch.WwMainActivity',
             # 'appPackage': self.package,
             # 'appActivity': self.activity,
             'noReset': True

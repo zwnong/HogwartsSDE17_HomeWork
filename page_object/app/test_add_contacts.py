@@ -23,16 +23,12 @@ class TestAddContacts:
                                                  'and @text="通讯录"]').click()
         self.driver.find_element(MobileBy.XPATH, '//*[@text="添加成员"]').click()
 
-        # def wait_name(driver):
-        #     """
-        #     :param driver:
-        #     :return:
-        #     """
-        #     self.driver.find_element(MobileBy.XPATH, '//android.widget.RelativeLayout[@resource-id="com.tencent.wework:id/cth"]').click()
-        #     return len(self.driver.find_elements(MobileBy.XPATH, '//android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]//*[@text="必填"]')) > 0
-        # WebDriverWait(self.driver, 10).until(wait_name)
-
+        # -->未知问题 使用WebDriverWait会报timeout sleep就能成功 是WebDriverWait没用对？
+        # WebDriverWait(self.driver, 10, 1).until(lambda x: x.find_element(MobileBy.XPATH,
+        #                                                                  '//android.widget.RelativeLayout['
+        #                                                                  '@resource-id="com.tencent.wework:id/cth"]').click())
         sleep(2)
+        # 点击手动输入添加
         self.driver.find_element(MobileBy.XPATH,
                                  '//android.widget.RelativeLayout[@resource-id="com.tencent.wework:id/cth"]').click()
 
@@ -43,20 +39,30 @@ class TestAddContacts:
     def test_add_contacts(self, name, phone_numb, e_mail, gender=None):
         """
         # 添加成员
-        :return:
+        :return
         """
 
         try:
-            self.driver.find_element(MobileBy.XPATH,
-                                     '//@resource-id="com.tencent.wework:id/ig8" and @text="完整输入"').click()
-            self.driver.find_element(MobileBy.XPATH,
-                                     '//android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]//*[@text="必填"]').send_keys(
-                name)
+            WebDriverWait(self.driver, 10, 0.5).until(lambda x: x.find_element(MobileBy.XPATH,
+                                                                               '//*[@text="完整输入"]').click())
+            # self.driver.find_element(MobileBy.XPATH,
+            #                          '///[@text="完整输入"]').click()
+            WebDriverWait(self.driver, 10, 0.5).until(lambda x: x.find_element(MobileBy.XPATH,
+                                                                               '//android.widget.LinearLayout['
+                                                                               '1]/android.widget.RelativeLayout['
+                                                                               '1]//*[@text="必填"]').send_keys(name))
+            # self.driver.find_element(MobileBy.XPATH,
+            #                          '//android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]//*[@text="必填"]').send_keys(
+            #     name)
         except Exception:
             # 输入名字
-            self.driver.find_element(MobileBy.XPATH,
-                                     '//android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]//*[@text="必填"]').send_keys(
-                name)
+            WebDriverWait(self.driver, 10, 0.5).until(lambda x: x.find_element(MobileBy.XPATH,
+                                                                               '//android.widget.LinearLayout['
+                                                                               '1]/android.widget.RelativeLayout['
+                                                                               '1]//*[@text="必填"]').send_keys(name))
+            # self.driver.find_element(MobileBy.XPATH,
+            #                          '//android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]//*[@text="必填"]').send_keys(
+            #     name)
 
             # 选择男女
             # self.driver.find_element(By.XPATH, '//@resource-id="com.tencent.wework:id/b7m"').click()
