@@ -7,12 +7,13 @@
 @time: 2021/3/9 21:52
 """
 from appium.webdriver.common.mobileby import MobileBy
+from appium.webdriver.webdriver import WebDriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 
 
 class BasePage:
-    def __init__(self, driver=None):
+    def __init__(self, driver: WebDriver = None):
         self.driver = driver
 
     # 获取屏幕的宽高
