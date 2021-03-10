@@ -3,7 +3,7 @@
 """
 @author: zwnong
 @project: HogwartsSDE17
-@file: add_members.py
+@file: add_members_page.py
 @time: 2021/3/3 20:52
 """
 from selenium.webdriver.common.by import By

@@ -3,15 +3,16 @@
 """
 @author: zwnong
 @project: HogwartsSDE17
-@file: swipe_screen.py
-@time: 2021/3/5 23:16
+@file: base_page.py
+@time: 2021/3/9 21:52
 """
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.common.exceptions import NoSuchElementException
+from selenium.webdriver.support.wait import WebDriverWait
 
 
-class SwipeScreen:
-    def __init__(self, driver):
+class BasePage:
+    def __init__(self, driver=None):
         self.driver = driver
 
     # 获取屏幕的宽高
@@ -75,3 +76,18 @@ class SwipeScreen:
                 return element
             except:
                 self.swipe_up()
+
+    def verify_add_member_ok(self):
+        assert '添加成功' in self.driver.page_source()
+
+    def verify_del_member_ok(self):
+        assert '' in self.driver.page_source()
+
+    def find(self, locator, value):
+        return self.driver.find_element(locator, value)
+
+    def web_driver_wait(self, locator, value):
+        return WebDriverWait(self.driver, 10, 0.1).until(lambda x: x.find_element(locator, value))
+
+    def finds(self, locator, value):
+        return self.driver.find_elements(locator, value)

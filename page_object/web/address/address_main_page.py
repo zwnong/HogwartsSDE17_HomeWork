@@ -9,7 +9,7 @@
 
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
-from page_object.web.address.add_members import AddMembers
+from page_object.web.address.add_members_page import AddMembers
 
 
 class AddressMainPage:
