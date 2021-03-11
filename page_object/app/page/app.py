@@ -6,31 +6,26 @@
 @file: app.py
 @time: 2021/3/4 0:49
 """
-from appium import webdriver
+import sys
 
+sys.path.append('..')
+from appium import webdriver
+from page_object.app.utli.get_file import GetFile
 from page_object.app.base.base_page import BasePage
 from page_object.app.page.main_page import MainPage
 
+get_datas = GetFile(r'../datas\caps.yaml')
+desirecaps = get_datas.get_yaml_data('desirecaps')
+IP = get_datas.get_yaml_data('server')['IP']
+port = get_datas.get_yaml_data('server')['port']
+
 
 class App(BasePage):
+
     # 复用driver 判断driver是否为None
     def start_android_driver(self):
         if self.driver is None:
-            capabilities = {
-                'platformName': 'Android',
-                "automationName": "UiAutomator2",
-                'deviceName': '127.0.0.1:21503',
-                'appPackage': 'com.tencent.wework',
-                'appActivity': 'com.tencent.wework.launch.WwMainActivity',
-                # 'appPackage': self.package,
-                # 'appActivity': self.activity,
-                # 跳过安装uiautomator2 服务
-                'skipServerInstallation': True,
-                # 跳过初始化
-                'skipDeviceInstallation': True,
-                'noReset': True
-            }
-            self.driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", capabilities)
+            self.driver = webdriver.Remote(f"http://{IP}:{port}/wd/hub", desirecaps)
             self.driver.implicitly_wait(10)
         else:
             self.driver.launch_app()

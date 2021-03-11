@@ -10,7 +10,7 @@ from time import sleep
 
 import pytest
 from page_object.app.page.app import App
-from util.get_yaml import GetFile
+from utils.get_file import GetFile
 
 
 class TestAddContactsPo:

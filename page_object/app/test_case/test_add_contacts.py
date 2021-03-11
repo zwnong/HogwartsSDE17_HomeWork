@@ -11,8 +11,8 @@ import pytest
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.webdriver.support.wait import WebDriverWait
 from page_object.app.page.app import App
-from util.get_yaml import GetFile
-from util.swipe_screen import SwipeScreen
+from utils.get_file import GetFile
+from utils.swipe_screen import SwipeScreen
 
 
 class TestAddContacts:

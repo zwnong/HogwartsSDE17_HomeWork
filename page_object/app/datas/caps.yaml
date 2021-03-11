@@ -1,0 +1,15 @@
+desirecaps:
+  platformName: Android
+  automationName: UiAutomator2
+  deviceName: 127.0.0.1:21503
+  appPackage: com.tencent.wework
+  appActivity: com.tencent.wework.launch.WwMainActivity
+  # 跳过安装uiautomator2 服务
+  skipServerInstallation: True
+  # 跳过初始化
+  skipDeviceInstallation: True
+  noReset: True
+
+server:
+  IP: 127.0.0.1
+  port: 4723

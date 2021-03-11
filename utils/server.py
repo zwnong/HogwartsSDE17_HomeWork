@@ -6,7 +6,7 @@
 @file: server.py
 @time: 2021/2/27 21:48
 """
-from util.dos_cmd import DosCmd
+from utils.dos_cmd import DosCmd
 
 
 class Server:

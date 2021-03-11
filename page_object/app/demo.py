@@ -12,7 +12,7 @@ from appium import webdriver
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.webdriver.support.wait import WebDriverWait
 
-from util.swipe_screen import SwipeScreen
+from utils.swipe_screen import SwipeScreen
 
 capabilities = {
     'platformName': 'Android',
