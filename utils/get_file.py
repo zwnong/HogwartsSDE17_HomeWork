@@ -15,7 +15,7 @@ sys.path.append('..')
 class GetFile:
     def __init__(self, file_path=None):
         if file_path is None:
-            self.file_path = r'../config\data.yaml'
+            self.file_path = r'../demo/config\data.yaml'
         else:
             self.file_path = file_path
         self.data = self.get_yaml()

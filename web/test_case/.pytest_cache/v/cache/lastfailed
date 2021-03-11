@@ -1,0 +1,4 @@
+{
+  "test_address.py": true,
+  "test_register.py::TestRegister::test_register": true
+}

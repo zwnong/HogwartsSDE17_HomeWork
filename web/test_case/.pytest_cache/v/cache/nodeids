@@ -1,0 +1,5 @@
+[
+  "test_address.py::TestAddress::test_address",
+  "test_register.py::TestRegister::test_register",
+  "test_register.py::TestRegister::test_register_from_login"
+]
