@@ -8,13 +8,14 @@
 """
 import sys
 
-sys.path.append('..')
-from appium import webdriver
-from app.appo.utli.get_file import GetFile
-from ui_framework.base.base_page import BasePage
-from app.appo.page.main_page import MainPage
+from ui_framework.xueqiu_app.page.main_page import MainPage
 
-get_datas = GetFile(r'../datas\caps.yaml')
+sys.path.append('..')
+from ui_framework.utils.get_file import GetFile
+from appium import webdriver
+from ui_framework.base.base_page import BasePage
+
+get_datas = GetFile(r'../datas/caps.yaml')
 desirecaps = get_datas.get_yaml_data('desirecaps')
 IP = get_datas.get_yaml_data('server')['IP']
 port = get_datas.get_yaml_data('server')['port']

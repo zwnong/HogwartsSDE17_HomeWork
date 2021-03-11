@@ -10,7 +10,7 @@ from time import sleep
 
 from appium.webdriver.common.mobileby import MobileBy
 from selenium.webdriver.support.wait import WebDriverWait
-from app.appo.base.base_page import BasePage
+from ui_framework.base.base_page import BasePage
 from app.appo.page.full_edit_page import FullEditPage
 from app.appo.page.quick_entry_page import QuickEditPage
 

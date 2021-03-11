@@ -10,7 +10,7 @@ from time import sleep
 
 from appium.webdriver.common.mobileby import MobileBy
 
-from app.appo.base.base_page import BasePage
+from ui_framework.base.base_page import BasePage
 from app.appo.page.search_result_page import SearchResultPage
 
 

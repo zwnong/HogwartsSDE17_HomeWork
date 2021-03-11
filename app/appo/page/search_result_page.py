@@ -8,7 +8,7 @@
 """
 from appium.webdriver.common.mobileby import MobileBy
 
-from app.appo.base.base_page import BasePage
+from ui_framework.base.base_page import BasePage
 from app.appo.page.contact_detail_briefInfo_profile_page import ContactDetailBriefInfoProfilePage
 
 

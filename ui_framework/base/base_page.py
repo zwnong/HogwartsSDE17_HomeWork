@@ -16,6 +16,39 @@ class BasePage:
     def __init__(self, driver: WebDriver = None):
         self.driver = driver
 
+    def find(self, locator, element):
+        """
+        重构查找元素
+        :param locator: 定位方式
+        :param element: 元素信息
+        :return:
+        """
+        return self.driver.find_element(locator, element)
+
+    def find_and_click(self, locator, element):
+        """
+        重构查找元素并点击
+        :param locator: 定位方式
+        :param element: 元素信息
+        :return:
+        """
+        return self.find(locator, element).click()
+
+    def find_and_sendkeys(self, locator, element, value):
+        return self.find(locator, element).send_keys(value)
+
+    def finds(self, locator, value):
+        return self.driver.find_elements(locator, value)
+
+    def web_driver_wait(self, locator, value):
+        return WebDriverWait(self.driver, 10, 0.1).until(lambda x: x.find_element(locator, value))
+
+    def verify_add_member_ok(self):
+        assert '添加成功' in self.driver.page_source()
+
+    def verify_del_member_ok(self):
+        assert '' in self.driver.page_source()
+
     # 获取屏幕的宽高
     def get_size(self):
         size = self.driver.get_window_size()
@@ -77,18 +110,3 @@ class BasePage:
                 return element
             except:
                 self.swipe_up()
-
-    def verify_add_member_ok(self):
-        assert '添加成功' in self.driver.page_source()
-
-    def verify_del_member_ok(self):
-        assert '' in self.driver.page_source()
-
-    def find(self, locator, value):
-        return self.driver.find_element(locator, value)
-
-    def web_driver_wait(self, locator, value):
-        return WebDriverWait(self.driver, 10, 0.1).until(lambda x: x.find_element(locator, value))
-
-    def finds(self, locator, value):
-        return self.driver.find_elements(locator, value)

@@ -9,13 +9,13 @@
 import yaml
 import sys
 
-sys.path.append('..')
+sys.path.append('../xueqiu_app/page')
 
 
 class GetFile:
     def __init__(self, file_path=None):
         if file_path is None:
-            self.file_path = r'/ui_framework/xueqiu_app/datas\caps.yaml'
+            self.file_path = r'../config\data.yaml'
         else:
             self.file_path = file_path
         self.data = self.get_yaml()
@@ -25,7 +25,7 @@ class GetFile:
         return data
 
     # 传入key获取value
-    def get_value(self, *args):
+    def get_yaml_data(self, *args):
 
         try:
             value = self.data.get(*args)
@@ -35,6 +35,5 @@ class GetFile:
 
 
 if __name__ == '__main__':
-    run = GetFile()
-    print(run.get_yaml())
-    # print(run.get_value('add')['datas'])
+    run = GetFile(r'../xueqiu_app/datas/caps.yaml')
+    print(run.get_yaml_data('desirecaps'))

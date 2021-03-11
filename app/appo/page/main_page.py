@@ -7,7 +7,7 @@
 @time: 2021/3/9 19:35
 """
 from appium.webdriver.common.mobileby import MobileBy
-from app.appo.base.base_page import BasePage
+from ui_framework.base.base_page import BasePage
 from app.appo.page.address_list_page import AddressListPage
 
 
