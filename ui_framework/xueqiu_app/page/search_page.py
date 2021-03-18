@@ -12,11 +12,10 @@ from ui_framework.base.base_page import BasePage
 
 
 class SearchPage(BasePage):
-    edit_search_box_datas = (MobileBy.XPATH, '//*[@resource-id="com.xueqiu.android:id/search_input_text"]', "alibaba")
 
     def edit_search_box(self):
         """
         编辑输入框
         :return:
         """
-        self.find_and_sendkeys(*self.edit_search_box_datas)
+        self.find_and_sendkeys(MobileBy.XPATH, '//*[@resource-id="com.xueqiu.android:id/search_input_text"]', "alibaba")

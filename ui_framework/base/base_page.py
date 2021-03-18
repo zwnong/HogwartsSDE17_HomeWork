@@ -6,16 +6,21 @@
 @file: base_page.py
 @time: 2021/3/9 21:52
 """
+import yaml
 from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.webdriver import WebDriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
+
+from ui_framework.decorator.handle_black_list import handle_black
+from ui_framework.utils.get_file import GetFile
 
 
 class BasePage:
     def __init__(self, driver: WebDriver = None):
         self.driver = driver
 
+    @handle_black
     def find(self, locator, element):
         """
         重构查找元素
@@ -24,6 +29,26 @@ class BasePage:
         :return:
         """
         return self.driver.find_element(locator, element)
+        # black_list = ['//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_agree" and @text="同意"]',
+        #               '//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_left" and @text="取消"]']
+        # try:
+        #     return self.driver.find_element(locator, element)
+        # except Exception:
+        #         for i in black_list:
+        #             ele_path = self.finds(locator, i)
+        #             if len(ele_path) > 0:
+        #                 ele_path[0].click()
+        #         return self.find(locator, element)
+        # black_list = ['//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_agree" and @text="同意"]',
+        #               '//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_left" and @text="取消"]']
+        # try:
+        #     return self.driver.find_element(locator, element)
+        # except Exception:
+        #     for i in black_list:
+        #         ele_path = self.finds(locator, i)
+        #         if len(ele_path) > 0:
+        #             ele_path[0].click()
+        #             return self.find(locator, element)
 
     def find_and_click(self, locator, element):
         """
@@ -32,7 +57,7 @@ class BasePage:
         :param element: 元素信息
         :return:
         """
-        return self.find(locator, element).click()
+        self.find(locator, element).click()
 
     def find_and_sendkeys(self, locator, element, value):
         return self.find(locator, element).send_keys(value)
@@ -48,6 +73,18 @@ class BasePage:
 
     def verify_del_member_ok(self):
         assert '' in self.driver.page_source()
+
+    # def get_yaml_data(self, file_path=None, value=None):
+    #     if file_path is None:
+    #         self.file_path = r'../config\data.yaml'
+    #     else:
+    #         self.file_path = file_path
+    #     data = yaml.safe_load(open(str(self.file_path), 'r', encoding='utf-8'))
+    #     try:
+    #         value = data.get()
+    #     except EOFError:
+    #         value = None
+    #     return value
 
     # 获取屏幕的宽高
     def get_size(self):
@@ -108,5 +145,5 @@ class BasePage:
                 element = self.driver.find_element(MobileBy.XPATH, expression)
                 self.driver.implicitly_wait(5)
                 return element
-            except:
+            except Exception:
                 self.swipe_up()

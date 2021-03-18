@@ -9,7 +9,7 @@
 import yaml
 import sys
 
-sys.path.append('../xueqiu_app/page')
+sys.path.append('..')
 
 
 class GetFile:
@@ -35,5 +35,6 @@ class GetFile:
 
 
 if __name__ == '__main__':
-    run = GetFile(r'../xueqiu_app/datas/caps.yaml')
-    print(run.get_yaml_data('desirecaps'))
+    run = GetFile(r'../keywords/main_page.yaml')
+    print(type(run.get_yaml_data('man_page')))
+    print(run.get_yaml_data('man_page')['locator'])

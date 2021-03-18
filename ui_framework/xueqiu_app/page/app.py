@@ -6,16 +6,15 @@
 @file: appo.py
 @time: 2021/3/4 0:49
 """
-import sys
-
-from ui_framework.xueqiu_app.page.main_page import MainPage
-
-sys.path.append('..')
 from ui_framework.utils.get_file import GetFile
 from appium import webdriver
 from ui_framework.base.base_page import BasePage
+from ui_framework.xueqiu_app.page.main_page import MainPage
+import sys
+sys.path.append('../')
 
-get_datas = GetFile(r'../datas/caps.yaml')
+
+get_datas = GetFile(file_path=r'../datas/caps.yaml')
 desirecaps = get_datas.get_yaml_data('desirecaps')
 IP = get_datas.get_yaml_data('server')['IP']
 port = get_datas.get_yaml_data('server')['port']

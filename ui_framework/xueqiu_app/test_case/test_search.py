@@ -19,5 +19,9 @@ class TestSearch:
         self.app.stop_android_driver()
 
     def test_search_a(self):
-        self.app.goto_main_page().click_market_page().click_search().edit_search_box()
+        self.app.goto_main_page().goto_market().click_search().edit_search_box()
         sleep(5)
+
+    def test_agree(self):
+        self.app.goto_main_page().goto_market()
+        sleep(3)
