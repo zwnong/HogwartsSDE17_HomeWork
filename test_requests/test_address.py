@@ -11,6 +11,11 @@ import requests
 
 class TestAddress:
     def setup(self):
+        # charles代理
+        self.proxies = {
+            "http": "http://127.0.0.1:8888",
+            "https": "http://127.0.0.1:8888"
+        }
         self.token = self.test_get_token()
 
     # 获取token
@@ -30,9 +35,9 @@ class TestAddress:
             "userid": "li1314",
             "name": "Bruce Lee",
             "mobile": "+86 13800000000",
-            "department": [1],
+            "department": [1]
         }
-        r = requests.post(url, json=data)
+        r = requests.post(url, json=data, proxies=self.proxies, verify=False)
         print(r.json())
 
     # 批量添加成员
@@ -42,8 +47,8 @@ class TestAddress:
             url = f"https://qyapi.weixin.qq.com/cgi-bin/user/create?access_token={self.token}"
             data = {
                 "userid": f"range{i}",
-                "name": f"range{i}",
-                "mobile": f"+86 1380000000{i}",
+                "name": f"批量{i}",
+                "mobile": f"+86 1380000001{i}",
                 "department": [1],
             }
             r = requests.post(url, json=data)
@@ -55,7 +60,6 @@ class TestAddress:
         user_id = 'li1314'
         url = f"https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token={self.token}&userid={user_id}"
         r = requests.get(url)
-        print(r.json())
 
     # 更新成员信息
     def test_update_member(self):
