@@ -35,5 +35,5 @@ class GetFile:
 
 
 if __name__ == '__main__':
-    run = GetFile(r'../datas\caps.yaml')
-    print(run.get_yaml_data('desirecaps'))
+    run = GetFile(r'E:\HogwartsSDE17_HomeWork\member_info_tb.yaml')
+    print(run.get_yaml_data('addcontcts'))

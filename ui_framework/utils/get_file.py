@@ -35,6 +35,5 @@ class GetFile:
 
 
 if __name__ == '__main__':
-    run = GetFile(r'../keywords/main_page.yaml')
-    print(type(run.get_yaml_data('man_page')))
-    print(run.get_yaml_data('man_page')['locator'])
+    run = GetFile(r"E:\HogwartsSDE17_HomeWork\member_info_tb.yaml")
+    print(run.get_yaml_data('addcontcts'))
