@@ -46,12 +46,11 @@ class WeworkAddress(Base):
 
     def delete_member2(self):
         """
-        删除成员
+        删除member_info_tb.yaml添加的成员
         :return:
         """
-        userid_list = yaml.safe_load(open(r'../test_case/user.yaml', 'r', encoding='utf-8'))
-        print(list(userid_list.split(',')))
-        for userid in list(userid_list.split(',')):
+        userid_list = self.get_yaml_userid()
+        for userid in userid_list:
             url = f"https://qyapi.weixin.qq.com/cgi-bin/user/delete?userid={userid}"
             r = self.send('GET', url)
             print(r.json())

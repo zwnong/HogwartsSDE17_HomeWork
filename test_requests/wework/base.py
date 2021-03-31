@@ -37,11 +37,11 @@ class Base:
 
     def get_yaml_userid(self):
         lists = self.yaml_data()["member_info"]
-        userid_list = []
+        user_list = []
         with open('../test_case/user.yaml', 'w', encoding='utf-8') as f:
             for j in lists:
-                f.write(str(f'{j[1]},'))
-        print(userid_list)
+                user_list.append(f'{j[1]}')
+        return user_list
 
     def send(self, *args, **kwargs):
         """
@@ -64,4 +64,3 @@ class Base:
 if __name__ == '__main__':
     run = Base()
     print(type(run.get_yaml_userid()))
-
