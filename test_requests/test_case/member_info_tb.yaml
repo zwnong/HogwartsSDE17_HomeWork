@@ -1,5 +1,5 @@
 member_info:
-  # [userid, name, mobile, department]
+  # [userid, name, mobile, department：list]
   - [lixiaolong, lixiaolong, 18855556660, [1]]
   - [lixiaolong1, lixiaolong1, 18255556661, [1]]
   - [lixiaolong2, lixiaolong2, 18855556662, [1]]
