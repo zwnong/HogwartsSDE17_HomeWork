@@ -38,9 +38,8 @@ class Base:
     def get_yaml_userid(self):
         lists = self.yaml_data()["member_info"]
         user_list = []
-        with open('../test_case/user.yaml', 'w', encoding='utf-8') as f:
-            for j in lists:
-                user_list.append(f'{j[1]}')
+        for j in lists:
+            user_list.append(f'{j[1]}')
         return user_list
 
     def send(self, *args, **kwargs):
