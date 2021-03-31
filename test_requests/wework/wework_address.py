@@ -6,60 +6,13 @@
 @file: wework_address.py
 @time: 2021/3/28 20:34
 """
-# 不使用session
-import requests
+# 基础封装好的接口方法
+import yaml
+
+from test_requests.wework.base import Base
 
 
-class WeworkAddress:
-    """
-    # 接口提速改良方案1：并发 多进程（资源消耗大） 辅组插件 pytest-dve/pytest-xdist 推荐使用 - n auto 原理：利用cpu逻辑处理器
-    # 问题 进程之间资源不互通 使用文件锁（待研究）
-    # 使用1：命令行 pytesy -n auto
-    # pycharm设置 Edit configurations--》Additional Arguments 添加 -n auto
-    # 接口提速改良2： 问题 不使用session 发送一次请求 就会获取一次token 相当于重复 每发送一次请求 握手ssl-->挥手ssl 100次就有100次握手ssl-->挥手ssl
-    #               解决  使用requests的session 发送一次请求握手ssl 100次请求（用例）后 在进行挥手，只有一次 握手ssl-->挥手ssl
-    # 使用：声明一个session session类里面有很多方法 他是重新封装了一套完整的requests请求
-    # Session()和get()是一个并行关系 即 Session().get() = requests.get()
-    # requests底层的方法也开启了session管理
-    # 案例：在wework_address2.py
-    """
-
-    def __init__(self):
-        self.token = self.get_token()
-
-    def get_token(self):
-        url = "https://qyapi.weixin.qq.com/cgi-bin/gettoken"
-        # 企业id: corpid
-        # 应用的凭证密钥：corpsecret 权限说明 接口使用范围，比如，同步通讯录的接口必须要用通讯录同步助手的access_token
-        params = {"corpid": "wwb636abb767a13836",
-                  "corpsecret": "dKM7tQH5rCf_PgLMZlMEoz3Zv-v2I4RNeDpWB71XM3c"
-                  }
-
-        r = requests.get(url, params=params)
-        return r.json()['access_token']
-
-    def parameterization_add_member(self, *args):
-        """
-        参数化时改进 添加成员
-        :param args: args[0]为 user_id
-        :param :args[0]为 user_id
-        :param :args[0]为 user_id手机必须是11位
-        :param :args[0]为 user_id
-        :return:
-        """
-        url = "https://qyapi.weixin.qq.com/cgi-bin/user/create"
-        params = {
-            "access_token": self.token
-        }
-        data = {
-            "userid": args[0],
-            "name": args[1],
-            "mobile": f"+86 {args[2]}",
-            "department": args[3]
-        }
-        r = requests.post(url, json=data, params=params)
-        return r.json()
-
+class WeworkAddress(Base):
     def add_member(self, userid: str, name: str, phone: str, department: list):
         """
         添加成员
@@ -79,7 +32,7 @@ class WeworkAddress:
             "mobile": f"+86 {phone}",
             "department": department
         }
-        r = requests.post(url, json=data, params=params)
+        r = self.send('POST', url, json=data, params=params)
         return r.json()
 
     def delete_member(self, userid):
@@ -87,22 +40,34 @@ class WeworkAddress:
         删除成员
         :return:
         """
-        url = f"https://qyapi.weixin.qq.com/cgi-bin/user/delete?access_token={self.token}&userid={userid}"
-        r = requests.get(url)
+        url = f"https://qyapi.weixin.qq.com/cgi-bin/user/delete?userid={userid}"
+        r = self.send('GET', url)
         return r.json()
+
+    def delete_member2(self):
+        """
+        删除成员
+        :return:
+        """
+        userid_list = yaml.safe_load(open(r'../test_case/user.yaml', 'r', encoding='utf-8'))
+        print(list(userid_list.split(',')))
+        for userid in list(userid_list.split(',')):
+            url = f"https://qyapi.weixin.qq.com/cgi-bin/user/delete?userid={userid}"
+            r = self.send('GET', url)
+            print(r.json())
 
     def update_member(self, userid: str, name: str = None, mobile: str = None):
         """
         修改成员
         :return:
         """
-        url = f"https://qyapi.weixin.qq.com/cgi-bin/user/update?access_token={self.token}"
+        url = f"https://qyapi.weixin.qq.com/cgi-bin/user/update"
         data = {
             "userid": userid,
             "name": name,
             "mobile": mobile,
         }
-        r = requests.post(url, json=data)
+        r = self.send('GET', url, json=data)
         return r.json()
 
     def get_info(self, userid):
@@ -110,6 +75,11 @@ class WeworkAddress:
         查看成员
         :return:
         """
-        url = f"https://qyapi.weixin.qq.com/cgi-bin/user/get?access_token={self.token}&userid={userid}"
-        r = requests.get(url)
+        url = f"https://qyapi.weixin.qq.com/cgi-bin/user/get?userid={userid}"
+        r = self.send('GET', url)
         return r.json()
+
+
+if __name__ == '__main__':
+    r = WeworkAddress()
+    r.delete_member2()

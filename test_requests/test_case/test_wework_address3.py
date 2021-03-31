@@ -3,18 +3,18 @@
 """
 @author: zwnong
 @project: HogwartsSDE17
-@file: test_wework_address2.py
-@time: 2021/3/30 22:28
+@file: test_wework_address3.py
+@time: 2021/3/28 20:39
+在做数据处理的时候 需要先做数据前的清理（必要）
+不必花大量时间在数据清理上，列举出常见的当前的影响数据处理的操作
+未来如果再遇到影响，再去添加清理操作，不必把整个项目所有的点（需要清理的操作）都想明白 浪费时间
+测试完成之后要恢复数据
 """
-import yaml
 from test_requests.wework.wework_address2 import WeworkAddress2
-import pytest
 
 
-# test_wework_address3.py test_add_member使用参数化和session
-class TestWeworkAddress2:
-    data = yaml.safe_load(open(r'member_info_tb.yaml', 'r', encoding='utf-8'))
-
+# 原始基础case
+class TestWeworkAddress:
     def setup_class(self):
         self.address = WeworkAddress2()
         self.user_id = "li1234"
@@ -40,17 +40,14 @@ class TestWeworkAddress2:
         r = self.address.get_info(self.user_id)
         assert r["name"] == self.name
 
-    @pytest.mark.parametrize(["userid", "name", "mobile", "department"], data.get('member_info'))
-    def test_add_member(self, userid, name, mobile, department):
-        # 参数化 批量添加成员
+    def test_add_member(self):
         # 如果创建的成员/手机号 已经存在，那么就会创建失败，所有需要做数据处理
         # 判断errmsg是否是create 但只能判定接口调用成功，并不能判定成员被创建
-        self.address.delete_member(userid)
-        r = self.address.add_member(userid, name, mobile, department)
+        r = self.address.add_member(self.user_id, self.name, self.mobile, self.department)
         assert r["errmsg"] == "created"
         # 方案1 查询数据库（这里做一个假的数据库信息）断言
-        info = self.address.get_info(userid)
-        assert info["name"] == name
+        info = self.address.get_info(self.user_id)
+        assert info["name"] == self.name
 
     def test_update_member(self):
         new_name = "李小龙_update"

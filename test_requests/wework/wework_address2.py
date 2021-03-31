@@ -6,11 +6,11 @@
 @file: wework_address2.py
 @time: 2021/3/31 1:38
 """
-# 使用session
+# 使用session 提升用例速度
 import requests
 
 
-class WeworkAddress:
+class WeworkAddress2:
     """
     # 接口提速改良方案1：并发 多进程（资源消耗大） 辅组插件 pytest-dve/pytest-xdist 推荐使用 - n auto 原理：利用cpu逻辑处理器
     # 问题 进程之间资源不互通 使用文件锁（待研究）
@@ -24,7 +24,6 @@ class WeworkAddress:
     # requests底层的方法也开启了session管理
     #
     """
-
     def __init__(self):
         # 声明session
         # self.s替换掉requests.方法
