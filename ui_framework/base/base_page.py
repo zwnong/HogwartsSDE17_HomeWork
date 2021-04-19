@@ -161,7 +161,6 @@ class BasePage:
         """
         with open(yaml_path, 'r', encoding='utf-8') as f:
             functance = yaml.load(f)
-        print(functance)
         steps = functance.get(fun_name)
         for step in steps:
             if step.get('action') == 'find_and_click':

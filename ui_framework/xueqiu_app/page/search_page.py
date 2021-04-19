@@ -6,7 +6,6 @@
 @file: search_page.py
 @time: 2021/3/11 23:33
 """
-import yaml
 
 from ui_framework.base.base_page import BasePage
 

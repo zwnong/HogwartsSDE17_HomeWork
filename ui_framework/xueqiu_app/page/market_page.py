@@ -6,9 +6,6 @@
 @file: market_page.py
 @time: 2021/3/11 23:29
 """
-import yaml
-from appium.webdriver.common.mobileby import MobileBy
-
 from ui_framework.base.base_page import BasePage
 from ui_framework.xueqiu_app.page.search_page import SearchPage
 

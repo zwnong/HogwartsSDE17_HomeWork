@@ -11,6 +11,7 @@ from selenium.webdriver.common.by import By
 
 
 class ReuesBrowser:
+    # 复用浏览器
     def test_add_adress(self):
         # 什么chrome参数
         self.chrome_arg = webdriver.ChromeOptions()
