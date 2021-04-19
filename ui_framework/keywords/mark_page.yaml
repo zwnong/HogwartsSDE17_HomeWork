@@ -1,0 +1,4 @@
+click_search:
+  - action: find_and_click
+    locator: xpath
+    element: //*[@resource-id="com.xueqiu.android:id/action_search"]

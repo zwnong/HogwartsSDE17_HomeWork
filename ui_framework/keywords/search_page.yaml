@@ -1,0 +1,5 @@
+edit_search_box:
+  - action: find_and_sendkeys
+    locator: xpath
+    element: //*[@resource-id="com.xueqiu.android:id/search_input_text"]
+    contents: alibaba

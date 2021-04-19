@@ -11,9 +11,7 @@ from appium.webdriver.common.mobileby import MobileBy
 from appium.webdriver.webdriver import WebDriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
-
 from ui_framework.decorator.handle_black_list import handle_black
-from ui_framework.utils.get_file import GetFile
 
 
 class BasePage:
@@ -135,6 +133,12 @@ class BasePage:
             self.swipe_right()
 
     def swipe_find(self, expression, num=3):
+        """
+        # 上下滑动查找元素
+        :param expression: 滑动页数，默认为3页
+        :param num:
+        :return:
+        """
         for i in range(num):
             if i == num - 1:
                 self.driver.implicitly_wait(5)
@@ -147,3 +151,20 @@ class BasePage:
                 return element
             except Exception:
                 self.swipe_up()
+
+    def parse(self, yaml_path, fun_name):
+        """
+        # 解析关键字 解析yaml文件并调用相应的方法 实现相应功能
+        :param yaml_path: yaml文件路径
+        :param fun_name: yaml文件定义的方法名
+        :return:
+        """
+        with open(yaml_path, 'r', encoding='utf-8') as f:
+            functance = yaml.load(f)
+        print(functance)
+        steps = functance.get(fun_name)
+        for step in steps:
+            if step.get('action') == 'find_and_click':
+                self.find_and_click(step.get('locator'), step.get('element'))
+            elif step.get('action') == 'find_and_sendkeys':
+                self.find_and_sendkeys(step.get('locator'), step.get('element'), step.get('contents'))

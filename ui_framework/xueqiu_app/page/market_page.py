@@ -6,6 +6,7 @@
 @file: market_page.py
 @time: 2021/3/11 23:29
 """
+import yaml
 from appium.webdriver.common.mobileby import MobileBy
 
 from ui_framework.base.base_page import BasePage
@@ -18,5 +19,5 @@ class MarketPage(BasePage):
         点击搜索按钮
         :return:
         """
-        self.find_and_click(MobileBy.XPATH, '//*[@resource-id="com.xueqiu.android:id/action_search"]')
+        self.parse(r'../../keywords/mark_page.yaml', 'click_search')
         return SearchPage(self.driver)
