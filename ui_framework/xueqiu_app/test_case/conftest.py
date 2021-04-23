@@ -35,4 +35,4 @@ def record():
     yield  # fixture的一个特点 分割用例运行前后
     # 用例运行后
     # os.kill(p.pid, signal.CTRL_C_EVENT)  # Ctrl+c 不能直接使用 要给指定pid，不然可能会kill掉其他服务
-    print(p.pid)
+    print(p.pid) 5.31:00
