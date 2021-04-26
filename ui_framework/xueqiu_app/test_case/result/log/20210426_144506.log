@@ -1,0 +1,4 @@
+[2021-04-26 14:45:18,366]  base_page.py:30:find: find//*[@resource-id="com.xueqiu.android:id/tab_name" and @text="行情"]
+[2021-04-26 14:45:21,140]  base_page.py:30:find: find//*[@resource-id="com.xueqiu.android:id/action_search"]
+[2021-04-26 14:45:23,026]  base_page.py:30:find: find//*[@resource-id="com.xueqiu.android:id/search_input_text"]
+[2021-04-26 14:45:37,581]  base_page.py:30:find: find//*[@resource-id="com.xueqiu.android:id/tab_name" and @text="行情"]

@@ -1,0 +1,5 @@
+INFO: scrcpy 1.17 <https://github.com/Genymobile/scrcpy>
+INFO: Recording started to mp4 file: result/record/record.mp4
+[2021-04-26 14:24:45,584]  base_page.py:30:find: find//*[@resource-id="com.xueqiu.android:id/tab_name" and @text="行情"]
+[2021-04-26 14:24:47,800]  base_page.py:30:find: find//*[@resource-id="com.xueqiu.android:id/action_search"]
+[2021-04-26 14:24:49,759]  base_page.py:30:find: find//*[@resource-id="com.xueqiu.android:id/search_input_text"]

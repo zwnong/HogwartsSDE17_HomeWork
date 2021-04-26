@@ -13,8 +13,13 @@
 # t1[2].extend([60, 70])
 # t1[2].sort()
 # print(t1)
+import time
+from time import asctime
+
 import yaml
 
-data = yaml.safe_load(open(r'E:\HogwartsSDE17_HomeWork\member_info_tb.yaml', 'r', encoding='utf-8'))
-value = data.get('addcontcts')
-print(value)
+# data = yaml.safe_load(open(r'E:\HogwartsSDE17_HomeWork\member_info_tb.yaml', 'r', encoding='utf-8'))
+# value = data.get('addcontcts')
+# print(value)
+
+print(time.strftime("%Y%m%d_%H%M%S", time.localtime()))

@@ -1,0 +1,2 @@
+D:\scrcpy-win64-v1.17\scrcpy-server: 1 file pushed, 0 skipped. 0.1 MB/s (34930 bytes in 0.246s)
+[server] INFO: Device: HUAWEI TAS-AN00 (Android 5.1.1)

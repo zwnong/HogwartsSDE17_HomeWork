@@ -1,0 +1,1 @@
+DEBUG    my_log:base_page.py:30 find//*[@resource-id="com.xueqiu.android:id/tab_name" and @text="行情"]

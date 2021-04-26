@@ -1,0 +1,11 @@
+INFO: scrcpy 1.17 <https://github.com/Genymobile/scrcpy>
+INFO: Recording started to mp4 file: result/record/record.mp4
+[2021-04-26 14:44:00,124]  base_page.py:30:find: find//*[@resource-id="com.xueqiu.android:id/tab_name" and @text="行情"]
+[2021-04-26 14:44:04,910]  base_page.py:30:find: find//*[@resource-id="com.xueqiu.android:id/action_search"]
+ERROR: Could not record packet
+ERROR: Could not send packet to recorder
+ERROR: Could not process frame
+INFO: Finishing recording...
+ERROR: Recording failed to result/record/record.mp4
+WARN: Device disconnected
+[2021-04-26 14:44:06,867]  base_page.py:30:find: find//*[@resource-id="com.xueqiu.android:id/search_input_text"]

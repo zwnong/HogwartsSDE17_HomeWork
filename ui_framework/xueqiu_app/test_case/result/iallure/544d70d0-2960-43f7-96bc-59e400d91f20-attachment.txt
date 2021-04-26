@@ -1,0 +1,1 @@
+[2021-04-26 14:44:25,322]  base_page.py:30:find: find//*[@resource-id="com.xueqiu.android:id/tab_name" and @text="行情"]

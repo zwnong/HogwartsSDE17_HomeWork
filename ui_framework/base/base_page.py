@@ -12,6 +12,7 @@ from appium.webdriver.webdriver import WebDriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support.wait import WebDriverWait
 from ui_framework.decorator.handle_black_list import handle_black
+from utils.logger import log
 
 
 class BasePage:
@@ -26,6 +27,7 @@ class BasePage:
         :param element: 元素信息
         :return:
         """
+        log.debug('find' + element)
         return self.driver.find_element(locator, element)
         # black_list = ['//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_agree" and @text="同意"]',
         #               '//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_left" and @text="取消"]']

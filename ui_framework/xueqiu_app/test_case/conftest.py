@@ -16,6 +16,9 @@ import os
 import subprocess
 import signal
 import sys
+
+from utils.logger import log_init
+
 sys.path.append('..')
 import pytest
 
@@ -27,6 +30,7 @@ def record():
     :return:
     """
     # 用例运行前
+    log_init()
     cmd = "scrcpy -Nr result/record/record.mp4"
     p = subprocess.Popen(cmd, shell=True)
     yield  # fixture的一个特点 分割用例运行前后

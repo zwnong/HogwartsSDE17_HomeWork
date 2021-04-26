@@ -9,6 +9,8 @@
 import allure
 from appium.webdriver.common.mobileby import MobileBy
 
+from utils.logger import log
+
 
 def handle_black(fun):
     def run(*args, **kwargs):
@@ -23,7 +25,9 @@ def handle_black(fun):
                       '//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_left" and @text="取消"]']
         # 相当于self
         instance = args[0]
+
         try:
+            # log.debug('finds' + instance[2])
             return fun(*args, **kwargs)
         except Exception:
             # 使用allure打开截图
