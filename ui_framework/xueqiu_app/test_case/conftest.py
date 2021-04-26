@@ -15,10 +15,8 @@
 import os
 import subprocess
 import signal
-from time import sleep
-
-from ui_framework.utils.dos_cmd import DosCmd
-
+import sys
+sys.path.append('..')
 import pytest
 
 
@@ -29,10 +27,8 @@ def record():
     :return:
     """
     # 用例运行前
-    cmd = r"scrcpy -Nr E:\HogwartsSDE17_HomeWork\ui_framework\record\tmp.mp4"
+    cmd = "scrcpy -Nr result/record/record.mp4"
     p = subprocess.Popen(cmd, shell=True)
-    print(p.pid)
     yield  # fixture的一个特点 分割用例运行前后
     # 用例运行后
-    # os.kill(p.pid, signal.CTRL_C_EVENT)  # Ctrl+c 不能直接使用 要给指定pid，不然可能会kill掉其他服务
-    print(p.pid) 5.31:00
+    os.kill(p.pid, signal.CTRL_C_EVENT)  # Ctrl+c 不能直接使用 要给指定pid，不然可能会kill掉其他服务

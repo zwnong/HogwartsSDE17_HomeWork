@@ -6,7 +6,6 @@
 @file: main_page.py
 @time: 2021/3/11 23:13
 """
-import yaml
 
 from ui_framework.base.base_page import BasePage
 from ui_framework.xueqiu_app.page.market_page import MarketPage

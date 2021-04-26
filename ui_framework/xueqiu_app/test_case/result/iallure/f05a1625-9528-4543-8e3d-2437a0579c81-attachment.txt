@@ -1,0 +1,2 @@
+INFO: scrcpy 1.17 <https://github.com/Genymobile/scrcpy>
+INFO: Recording started to mp4 file: result/record/record.mp4

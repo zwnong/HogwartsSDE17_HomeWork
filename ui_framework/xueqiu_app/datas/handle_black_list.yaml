@@ -1,0 +1,2 @@
+//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_agree" and @text="同意"
+//android.widget.TextView[@resource-id="com.xueqiu.android:id/tv_left" and @text="取消"]

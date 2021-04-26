@@ -6,6 +6,7 @@
 @file: handle_black_list.py
 @time: 2021/3/16 18:06
 """
+import allure
 from appium.webdriver.common.mobileby import MobileBy
 
 
@@ -25,6 +26,8 @@ def handle_black(fun):
         try:
             return fun(*args, **kwargs)
         except Exception:
+            # 使用allure打开截图
+            allure.attach(instance.screenshot(), attachment_type=allure.attachment_type.PNG)
             for i in black_list:
                 ele_path = instance.finds(MobileBy.XPATH, i)
                 if len(ele_path) > 0:

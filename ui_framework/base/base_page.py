@@ -167,3 +167,6 @@ class BasePage:
                 self.find_and_click(step.get('locator'), step.get('element'))
             elif step.get('action') == 'find_and_sendkeys':
                 self.find_and_sendkeys(step.get('locator'), step.get('element'), step.get('contents'))
+
+    def screenshot(self):
+        return self.driver.get_screenshot_as_png()
