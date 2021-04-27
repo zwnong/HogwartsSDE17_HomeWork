@@ -7,7 +7,6 @@
 @time: 2021/3/28 20:34
 """
 # 基础封装好的接口方法
-import yaml
 
 from test_requests.wework.base import Base
 
