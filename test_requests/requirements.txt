@@ -1,5 +1,4 @@
 requests
 PyYAML
 pytest
-allure
 allure-pytest
