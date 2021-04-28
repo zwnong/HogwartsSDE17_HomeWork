@@ -12,7 +12,7 @@ from test_requests.wework.wework_address import WeworkAddress
 
 
 class TestWeworkAddress:
-    data = yaml.safe_load(open(r'member_info_tb.yaml', 'r', encoding='utf-8'))
+    data = yaml.safe_load(open(r'./member_info_tb.yaml', 'r', encoding='utf-8'))
 
     def setup_class(self):
         self.address = WeworkAddress()

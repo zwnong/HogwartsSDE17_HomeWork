@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Jenkins_path/workspace/test_requests" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Jenkins_path/workspace/test_requests/HogwartsSDE17_HomeWork" vcs="Git" />
   </component>
 </project>
