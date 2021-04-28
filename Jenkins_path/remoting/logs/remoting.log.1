@@ -1,34 +1,6 @@
-四月 28, 2021 12:42:30 下午 org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver resolve
+四月 28, 2021 12:43:22 下午 org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver resolve
 信息: Remoting server accepts the following protocols: [JNLP4-connect, Ping]
-四月 28, 2021 12:42:40 下午 org.jenkinsci.remoting.protocol.impl.ConnectionHeadersFilterLayer onRecv
-信息: [JNLP4-connect connection to 192.168.149.129/192.168.149.129:50000] Local headers refused by remote: Unknown client name: slave
-四月 28, 2021 12:42:40 下午 hudson.remoting.jnlp.GuiListener lambda$status$0
-信息: Protocol JNLP4-connect encountered an unexpected exception
-java.util.concurrent.ExecutionException: org.jenkinsci.remoting.protocol.impl.ConnectionRefusalException: Unknown client name: slave
-	at org.jenkinsci.remoting.util.SettableFuture.get(SettableFuture.java:223)
-	at hudson.remoting.Engine.innerRun(Engine.java:739)
-	at hudson.remoting.Engine.run(Engine.java:514)
-Caused by: org.jenkinsci.remoting.protocol.impl.ConnectionRefusalException: Unknown client name: slave
-	at org.jenkinsci.remoting.protocol.impl.ConnectionHeadersFilterLayer.newAbortCause(ConnectionHeadersFilterLayer.java:377)
-	at org.jenkinsci.remoting.protocol.impl.ConnectionHeadersFilterLayer.onRecvClosed(ConnectionHeadersFilterLayer.java:432)
-	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.onRecvClosed(ProtocolStack.java:817)
-	at org.jenkinsci.remoting.protocol.FilterLayer.onRecvClosed(FilterLayer.java:288)
-	at org.jenkinsci.remoting.protocol.impl.SSLEngineFilterLayer.onRecvClosed(SSLEngineFilterLayer.java:170)
-	at org.jenkinsci.remoting.protocol.ProtocolStack$Ptr.onRecvClosed(ProtocolStack.java:817)
-	at org.jenkinsci.remoting.protocol.NetworkLayer.onRecvClosed(NetworkLayer.java:154)
-	at org.jenkinsci.remoting.protocol.impl.BIONetworkLayer.access$1500(BIONetworkLayer.java:48)
-	at org.jenkinsci.remoting.protocol.impl.BIONetworkLayer$Reader.run(BIONetworkLayer.java:247)
-	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
-	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
-	at hudson.remoting.Engine$1.lambda$newThread$0(Engine.java:119)
-	at java.lang.Thread.run(Unknown Source)
-	Suppressed: java.nio.channels.ClosedChannelException
-		... 7 more
-
-四月 28, 2021 12:42:40 下午 hudson.remoting.jnlp.GuiListener$1 run
-严重: The server rejected the connection: None of the protocols were accepted
-java.lang.Exception: The server rejected the connection: None of the protocols were accepted
-	at hudson.remoting.Engine.onConnectionRejected(Engine.java:824)
-	at hudson.remoting.Engine.innerRun(Engine.java:764)
-	at hudson.remoting.Engine.run(Engine.java:514)
-
+四月 28, 2021 2:05:55 下午 org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver waitForReady
+信息: Failed to connect to the master. Will try again: java.net.SocketTimeoutException Read timed out
+四月 28, 2021 2:06:06 下午 org.jenkinsci.remoting.engine.JnlpAgentEndpointResolver resolve
+信息: Remoting server accepts the following protocols: [JNLP4-connect, Ping]
