@@ -1,0 +1,28 @@
+---
+pluginList: []
+saveScreen: true
+reportTitle: "雪球行情页自动遍历"
+resultDir: "20210508180909"
+waitLoading: 500
+waitLaunch: 6000
+showCancel: true
+maxTime: 10800
+maxDepth: 6 # 遍历的最大深度
+capability:
+  platformName: Android
+  automationName: UiAutomator2
+  deviceName: 127.0.0.1:21503
+  app: 'E:\AppCrawler\笔趣阁.app'
+  appPackage: com.xueqiu.android
+  appActivity: com.xueqiu.android.main.view.MainActivity
+  # 跳过安装uiautomator2 服务
+  skipServerInstallation: True
+  # 跳过初始化
+  skipDeviceInstallation: True
+  settings[waitForIdleTimeout]: 1
+  noReset: True
+testcase: #
+  name: "指定测试用例的名字"
+  steps:
+    xpath: "//*[@text='行情']"
+    action: 'click'
